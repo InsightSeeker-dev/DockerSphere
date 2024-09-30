@@ -1,6 +1,6 @@
 # Service d'Exécution de Conteneurs Docker
 
-![Logo du projet](data:image/svg+xml;base64,...)
+![Logo du projet](dockersphere-logo.svg)
 
 Ce projet consiste en la création d'un service permettant aux utilisateurs de gérer des conteneurs Docker de manière simple et efficace. L'objectif principal est de fournir une interface intuitive pour lancer des conteneurs, les arrêter, les supprimer, et les rendre accessibles via des URLs personnalisées.
 

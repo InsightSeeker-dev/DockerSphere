@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="sphere-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0db7ed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#384d54;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sphère -->
+  <circle cx="100" cy="100" r="90" fill="url(#sphere-gradient)" />
+  
+  <!-- Anneaux de la sphère -->
+  <path d="M30,100 A70,70 0 0,1 170,100" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6" />
+  <path d="M40,60 A70,70 0 0,1 160,60" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.4" />
+  <path d="M40,140 A70,70 0 0,1 160,140" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.4" />
+  
+  <!-- Baleine Docker stylisée -->
+  <path d="M80,90 h20 v-10 h-20 v10 h-10 v-20 h40 v30 h-30 v-10 M120,90 h20 v-10 h-20 v10" fill="#ffffff"/>
+  <circle cx="135" cy="75" r="3" fill="#ffffff" />
+</svg>

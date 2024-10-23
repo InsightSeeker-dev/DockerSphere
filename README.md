@@ -105,12 +105,12 @@ graph TD
     L -->|Quotas| M[Resource Manager]
     M -->|Monitoring| I
 
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#bbf,stroke:#333,stroke-width:2px
-    style J fill:#bfb,stroke:#333,stroke-width:2px
-    style K fill:#fbf,stroke:#333,stroke-width:2px
-    style L fill:#ff9,stroke:#333,stroke-width:2px
-    style M fill:#f99,stroke:#333,stroke-width:2px
+    style A fill:#03B4C1,stroke:#333,stroke-width:2px
+    style B fill:#410093,stroke:#333,stroke-width:2px
+    style J fill:#01a6f0,stroke:#333,stroke-width:2px
+    style K fill:#ffba01,stroke:#333,stroke-width:2px
+    style L fill:#7fbc00,stroke:#333,stroke-width:2px
+    style M fill:#F34F1C,stroke:#333,stroke-width:2px
 ```
 
 ### ⚙️ Détails de l'architecture :

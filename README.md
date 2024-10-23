@@ -169,5 +169,5 @@ Ce projet est sous licence Apache 2.0. Pour plus d'informations, consultez le fi
 ---
 
 <div align="center">
-  <p>Fait avec ❤️ pour simplifier la gestion des conteneurs Docker</p>
+  <p>Dynastie AMOUSSOU</p>
 </div>

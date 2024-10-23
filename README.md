@@ -144,8 +144,8 @@ graph TD
 ### 🗄️ Base de données
 | Technologie | Description |
 |-------------|-------------|
-| 💾 **PostgreSQL** | Base de données principale |
-| 📊 **TimescaleDB** | Métriques et monitoring |
+| 💾 **MongoDB** | Base de données principale NoSQL pour :<br>- Stockage flexible des données utilisateurs<br>- Gestion des configurations des conteneurs<br>- Évolutivité horizontale facile |
+| 📊 **TimescaleDB** | Base de données temporelle pour :<br>- Métriques de performance<br>- Logs système<br>- Données de monitoring |
 
 ### 🔄 Reverse Proxy
 | Technologie | Description |

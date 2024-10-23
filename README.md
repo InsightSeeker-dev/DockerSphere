@@ -7,6 +7,8 @@ Ce projet consiste en la création d'un service permettant aux utilisateurs de g
 
 ## 📚 Table des matières
 - [🎯 Fonctionnalités](#fonctionnalités)
+- [👥 Gestion des Utilisateurs](#gestion-des-utilisateurs)
+- [💾 Système de Fichiers (Drive)](#système-de-fichiers-drive)
 - [🏗️ Architecture](#architecture)
 - [💻 Technologies Utilisées](#technologies-utilisées)
 - [📄 Licences](#licences)
@@ -20,6 +22,67 @@ Ce projet consiste en la création d'un service permettant aux utilisateurs de g
 - 🔌 **Gestion des ports** : Politique de liaison des ports pour permettre à plusieurs conteneurs de fonctionner simultanément sans conflit.
 - 🔒 **Sécurité** : Utilisation de JWT pour l'authentification, gestion des rôles, et audit des actions.
 
+## 👥 Gestion des Utilisateurs
+
+### 🎭 Rôles et Permissions
+- 👑 **Administrateur**
+  - Gestion complète de la plateforme
+  - Création/Suppression des utilisateurs
+  - Configuration système
+  - Accès aux métriques et logs
+
+- 👨‍💼 **Manager**
+  - Gestion de son équipe
+  - Attribution des ressources
+  - Visualisation des métriques
+  - Gestion des quotas
+
+- 👨‍💻 **Développeur**
+  - Déploiement de conteneurs
+  - Gestion de ses conteneurs
+  - Accès aux logs
+  - Configuration des volumes
+
+- 👀 **Observateur**
+  - Visualisation des conteneurs
+  - Lecture des logs
+  - Accès en lecture aux fichiers
+
+### 📊 Quotas et Limites
+- 💻 Nombre maximum de conteneurs
+- 💾 Espace de stockage alloué
+- 🌐 Bande passante
+- 🔌 Ports disponibles
+
+### 🔐 Sécurité
+- 🔑 Authentification multi-facteurs
+- 🔄 SSO (Google, GitHub)
+- 📝 Logs d'audit
+- 🚫 Gestion des IP autorisées
+
+## 💾 Système de Fichiers (Drive)
+
+### 📁 Fonctionnalités Drive
+- 🗄️ **Stockage persistant**
+  - Volumes dédiés par utilisateur
+  - Quotas personnalisables
+  - Isolation des données
+
+- 🔄 **Synchronisation**
+  - Sauvegarde automatique
+  - Versioning des fichiers
+  - Points de restauration
+
+- 👥 **Partage**
+  - Partage entre conteneurs
+  - Partage entre utilisateurs
+  - Gestion des permissions
+
+- 🔒 **Sécurité**
+  - Chiffrement des données
+  - Contrôle d'accès
+  - Audit des accès
+
 ## 🏗️ Architecture
 
 ```mermaid
@@ -32,16 +95,22 @@ graph TD
     B -->|Stockage données| G[Base de données]
     H[Reverse Proxy] -->|Routage| I[Conteneurs Docker]
     B -->|Gestion| H
+    
+    %% Composants Drive et Users
+    B -->|Fichiers| J[Service Drive]
+    J -->|Stockage| K[Volume Manager]
+    K -->|Montage| I
+    
+    F -->|Gestion| L[User Manager]
+    L -->|Quotas| M[Resource Manager]
+    M -->|Monitoring| I
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style B fill:#bbf,stroke:#333,stroke-width:2px
-    style C fill:#f9f,stroke:#333,stroke-width:2px
-    style D fill:#bfb,stroke:#333,stroke-width:2px
-    style E fill:#fbb,stroke:#333,stroke-width:2px
-    style F fill:#fbf,stroke:#333,stroke-width:2px
-    style G fill:#ff9,stroke:#333,stroke-width:2px
-    style H fill:#9ff,stroke:#333,stroke-width:2px
-    style I fill:#bfb,stroke:#333,stroke-width:2px
+    style J fill:#bfb,stroke:#333,stroke-width:2px
+    style K fill:#fbf,stroke:#333,stroke-width:2px
+    style L fill:#ff9,stroke:#333,stroke-width:2px
+    style M fill:#f99,stroke:#333,stroke-width:2px
 ```
 
 ### ⚙️ Détails de l'architecture :
@@ -69,11 +138,14 @@ graph TD
 | 🔧 **Node.js** avec **Express.js** ou **FastAPI (Python)** | Gestion des APIs |
 | 🐳 **Docker SDK** | Gestion de Docker |
 | 🔑 **JWT** | Sécurisation des sessions |
+| 📁 **MinIO** | Stockage de fichiers compatible S3 |
+| 📊 **Redis** | Cache et sessions |
 
 ### 🗄️ Base de données
 | Technologie | Description |
 |-------------|-------------|
-| 💾 **PostgreSQL** ou **MongoDB** | Stockage des données persistantes |
+| 💾 **PostgreSQL** | Base de données principale |
+| 📊 **TimescaleDB** | Métriques et monitoring |
 
 ### 🔄 Reverse Proxy
 | Technologie | Description |

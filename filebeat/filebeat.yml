@@ -1,0 +1,21 @@
+# filebeat/filebeat.yml
+filebeat.inputs:
+- type: docker
+  containers:
+    path: "/var/lib/docker/containers"
+    ids:
+      - "*"
+  processors:
+    - add_docker_metadata: ~
+
+- type: log
+  enabled: true
+  paths:
+    - /var/log/nginx/*.log
+  fields:
+    type: nginx
+
+output.logstash:
+  hosts: ["logstash:5044"]
+
+logging.json: true
